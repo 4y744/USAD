@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Random number generator",
+        "input_type": "box",
+        "placeholder": ["Enter min...", "Enter max..."],
+        "function": [
+        {"args": ["input.length", "<", "2"], "func": "if"}, {"args": [], "func": "return"}, {"args": [], "func": "end"},
+        {"args": ["0", "<", "input.length"], "func": "for"},
+        {"args": ["input[i]", "<=", "0"], "func": "if"},{"args": [], "func": "return"}, {"args": [], "func": "end"}, {"args": [], "func": "end"},
+        {"args": ["num1", "0"], "func": "let"}, {"args": ["num2", "0"], "func": "let"},
+        {"args": ["num1", "parseFloat(input[0])"], "func": "set"},
+        {"args": ["1", "<", "input.length"], "func": "for"},
+        {"args": ["num2", "parseFloat(input[i])"], "func": "set"},
+        {"args": ["num1", "!=", "num2"], "func": "while"},
+        {"args": ["num1", ">", "num2"], "func": "if"}, {"args": ["num1", "num1", "num2"], "func": "sub"}, {"args": [], "func": "end"},
+        {"args": [], "func": "else"}, {"args": ["num2", "num2", "num1"], "func": "sub"}, {"args": [], "func": "end"},
+        {"args": [], "func": "end"},
+        {"args": [], "func": "end"},
+        {"args": ["num1"], "func": "return"}
+    ]
+    }
+]
