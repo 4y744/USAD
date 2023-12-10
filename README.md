@@ -1,2 +1,2 @@
 # USAD
-## Universal Scalable Algorithm Directory
+Universal Scalable Algorithm Directory
