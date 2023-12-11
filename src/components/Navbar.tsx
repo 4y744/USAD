@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import style from '/src/css/navbar.module.css';
+import image from "/src/assets/images/logo.png";
 
 function Navbar()
 {
@@ -6,40 +8,23 @@ function Navbar()
     <nav>
         <ul className={style["navbar"]}>
             <li className={style["nav-item"]}>
-                <a href="/">
-                    <img src="/src/assets/images/logo.png" alt=""/>
-                </a>
+                <Link to="/">
+                    <img src={image} alt=""/>
+                </Link>
             </li>
             <li className={style["nav-item"]}>
-                <div className={style["nav-search"]}>
-                    <input className={style["nav-search-bar"]} type="text" placeholder="Search"/>
-                    <button className={style["search-button"]}><i className="fa-solid fa-magnifying-glass"></i></button>
-                </div>
+                <Link to="/">
+                    <i className="fa-solid fa-house"></i>
+                    <span className={style["nav-text"]}>Начало</span>
+                </Link>
             </li>
             <li className={style["nav-item"]}>
-                <a href="/math.html">
-                    <i className="fa-solid fa-square-root-variable"></i>
-                    <span className={style["nav-text"]}>Math</span>
+                <a href="https://github.com/4y744/USAD" target="_blank">
+                    <i className="fa-brands fa-github"></i>
+                    <span className={style["nav-text"]}>GitHub</span>
                 </a>
             </li>
-            <li className={style["nav-item"]}>
-                <a href="/physics.html">
-                    <i className="fa-solid fa-atom"></i>
-                    <span className={style["nav-text"]}>Physics</span>
-                </a>
-            </li>
-            <li className={style["nav-item"]}>
-                <a href="#">
-                    <i className="fa-solid fa-heart-pulse"></i>
-                    <span className={style["nav-text"]}>Health</span>
-                </a>
-            </li>
-            <li className={style["nav-item"]}>
-                <a href="#">
-                    <i className="fa-solid fa-network-wired"></i>
-                    <span className={style["nav-text"]}>Networking</span>
-                </a>
-            </li>
+
         </ul>
     </nav>
     );

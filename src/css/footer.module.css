@@ -21,6 +21,11 @@ footer{
     width: 200px;
 }
 
+.footer-container-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
 .footer-container-link{
     color: white;
     text-decoration: none;

@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.not-found{
+    font-size: 40px;
+    font-weight: bold;
+}

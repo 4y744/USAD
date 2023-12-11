@@ -45,33 +45,6 @@ nav{
     height: 35px;
 }
 
-.nav-item:nth-child(2){
-    padding: 0 20px;
-}
-
-.nav-search{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-search-bar{  
-    height: 35px;
-    padding: 0 10px;
-}
-
-.search-button{
-    text-align: center;
-
-    color: #24252A;
-
-    background-color: white;
-    height: 35px;
-    aspect-ratio: 1 / 1;
-
-    cursor: pointer;
-}
-
 @media (max-width:1000px) {
     .navbar{
         flex-direction: row;
