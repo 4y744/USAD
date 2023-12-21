@@ -1,6 +1,6 @@
 
 //Import components
-import Input from '../components/Input.tsx';
+import Input from '../containers/Input.tsx';
 import NotFound from './NotFound.tsx';
 //Import css files
 import style from '/src/css/algorithm.module.css';
@@ -9,7 +9,7 @@ import {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 //Import Firebase hooks
 import { getDoc, doc } from "firebase/firestore";
-import { db } from "../firebase.tsx";
+import { db } from "../firebase";
 
 
 interface alg_interface{
@@ -20,7 +20,7 @@ interface alg_interface{
     function: string;
 }
 
-function AlgorithmPage()
+export default function Algorithm()
 {
     const [alg, setAlg] = useState<alg_interface>();
     const [isLoading, setLoading] = useState(true);
@@ -69,5 +69,3 @@ function AlgorithmPage()
         </div>
     )
 }
-
-export default AlgorithmPage;

@@ -2,8 +2,8 @@ import style from '/src/css/home.module.css';
 //Import react hooks
 import {useState, useEffect} from 'react';
 //Import Firebase hooks
-import { getDocs, collection, query } from "firebase/firestore";
-import { db } from "../firebase.tsx";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../firebase";
 import { Link } from 'react-router-dom';
 
 
