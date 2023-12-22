@@ -2,7 +2,7 @@
 import { NavLogo, NavLink, NavSearch, NavToggle, DropdownLink } from "../exports";
 
 //Import React hooks
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 //Import localization
 import i18n from "../locale/config";
@@ -13,11 +13,11 @@ export default function Navbar()
     //const change = () => i18n.changeLanguage("bg");
     //const { t } = useTranslation();
 
-    const [dropdownHeight, setDropdownHeight] = useState(0);
+    const [navToggled, setNavToggled] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     const toggleNavbar = () => {
-        if(dropdownHeight > 0) setDropdownHeight(0);
-        else setDropdownHeight(300);
+        setNavToggled(!navToggled);
     }
 
     return (
@@ -63,7 +63,7 @@ export default function Navbar()
                 </section>
 
                 {/* Dropdown */}
-                <section style={{maxHeight: dropdownHeight}} className="flex justify-start items-start overflow-hidden flex-col px-3 transition-max-height duration-500 ease-in-out">
+                <section style={navToggled ? {maxHeight: 0} : {maxHeight: dropdownRef.current?.scrollHeight!}} ref={dropdownRef} className="flex justify-start items-start overflow-hidden flex-col px-3 transition-max-height duration-300 ease-in-out">
                     <DropdownLink url="/" text="Home"/>
                     <DropdownLink url="browse" text="Browse"/>
                     <DropdownLink url="create" text="Create"/>
