@@ -7,6 +7,11 @@ export default {
   theme: {
     fontFamily: {
       'inter': ['Inter', 'system-ui']
+    },
+    extend: {
+      transitionProperty: {
+        'max-height': 'max-height'
+      }
     }
   },
   plugins: [],

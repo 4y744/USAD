@@ -1,11 +1,14 @@
+//FILE TO CENTRALIZE COMPONENT EXPORTS
+
 //Import components
-import NavLink from "./components/NavLink";
-import NavSearch from "./components/NavSearch";
-import NavToggle from "./components/NavToggle";
-import DropdownLink from "./components/DropdownLink";
+import NavLogo from "./components/navbar/NavLogo";
+import NavLink from "./components/navbar/NavLink";
+import NavSearch from "./components/navbar/NavSearch";
+import NavToggle from "./components/navbar/NavToggle";
+import DropdownLink from "./components/navbar/DropdownLink";
 
 //Export components
-export {NavLink, NavSearch, NavToggle, DropdownLink};
+export {NavLogo, NavLink, NavSearch, NavToggle, DropdownLink};
 
 //Import containers
 import Navbar from "./containers/Navbar";
