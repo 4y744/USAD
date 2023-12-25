@@ -10,7 +10,12 @@ export default {
     },
     extend: {
       transitionProperty: {
-        'max-height': 'max-height'
+        'max-height': 'max-height',
+        'height': 'height',
+        'background': 'background'
+      },
+      backgroundImage: {
+        'home-headline': "url('/src/assets/svgs/home-headline.svg')"
       }
     }
   },

@@ -1,5 +1,5 @@
 //Import components
-import { NavLogo, NavLink, NavSearch, NavToggle, DropdownLink } from "../exports";
+import { NavLogo, NavLink, NavSearch, NavToggle, DropdownLink, LineBreak } from "../exports";
 
 //Import React hooks
 import { useState, useRef, useEffect } from "react";
@@ -8,11 +8,12 @@ import { useState, useRef, useEffect } from "react";
 import i18n from "../locale/config";
 import { useTranslation } from "react-i18next"
 
-export default function Navbar()
+export function Navbar()
 {
     //const change = () => i18n.changeLanguage("bg");
     //const { t } = useTranslation();
 
+    //Mobile navbar event handler
     const [navToggled, setNavToggled] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -21,7 +22,7 @@ export default function Navbar()
     }
 
     return (
-        <nav className="bg-gray-800 shadow-lg">
+        <nav className="bg-zinc-900 drop-shadow-md">
             {/* Big screen navbar */}
             <section className="md:flex hidden p-2">
 
@@ -46,7 +47,7 @@ export default function Navbar()
             {/* Mobile navbar */}
             <section className="md:hidden flex flex-col">
 
-                <section className="flex px-3 py-3">
+                <section className="flex p-3">
 
                     <section className="flex justify-center items-center">
                         <NavLogo/>
@@ -63,15 +64,15 @@ export default function Navbar()
                 </section>
 
                 {/* Dropdown */}
-                <section style={navToggled ? {maxHeight: 0} : {maxHeight: dropdownRef.current?.scrollHeight!}} ref={dropdownRef} className="flex justify-start items-start overflow-hidden flex-col px-3 transition-max-height duration-300 ease-in-out">
-                    <DropdownLink url="/" text="Home"/>
-                    <DropdownLink url="browse" text="Browse"/>
-                    <DropdownLink url="create" text="Create"/>
-                    <DropdownLink url="about" text="About"/>
-                    <hr className="w-full border-none h-[1px] my-2 bg-gray-400"/>
-                    <DropdownLink url="/" text="Sign in"/>
-                    {/* Empty space, because padding or margin breaks navbar toggle */}
-                    <hr className="w-full my-2 border-transparent"/>
+                <section style={navToggled ? {height: dropdownRef.current?.scrollHeight!} : {height: 0}} ref={dropdownRef} className="flex justify-start items-start overflow-hidden flex-col px-3 transition-height duration-300 ease-in-out">
+                    <DropdownLink onclick={toggleNavbar} url="/" text="Home"/>
+                    <DropdownLink onclick={toggleNavbar} url="browse" text="Browse"/>
+                    <DropdownLink onclick={toggleNavbar} url="create" text="Create"/>
+                    <DropdownLink onclick={toggleNavbar} url="about" text="About"/>
+                    <hr className="h-1 w-full my-2 border-1 border-zinc-200"/>
+                    <DropdownLink onclick={toggleNavbar} url="/" text="Sign in"/>
+                    {/* Empty space, because margins or vertical paddings are not affected by height */}
+                    <LineBreak/>
                 </section>
                 
             </section>

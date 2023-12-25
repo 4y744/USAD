@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SignUp() {
+export function SignUpPage() {
   return (
     <div>SignUp</div>
   )

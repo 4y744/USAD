@@ -1,6 +1,6 @@
 //Import React hooks
 import { useState } from "react";
-
+import { Suspense } from "react";
 //Import React Router hooks
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -12,21 +12,16 @@ import { User, onAuthStateChanged, signOut } from "firebase/auth";
 
 
 //Import containers
-import {Navbar, Footer} from "./exports";
+import { Navbar, Footer, Loading } from "./exports";
 
 //Import page components
-import { Home, About, Algorithm, NotFound, SignIn, SignUp } from "./exports"
-
-//DEPRECATED!!! REMOVE!!!
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import { HomePage, AboutPage, AlgorithmPage, NotFoundPage, SignInPage, SignUpPage } from "./exports"
 
 //Import i18n hooks
 import './locale/config';
 
 
-export default function App()
-{
+export default function App() {
   const [currentUser, setCurrentUser] = useState<User>();
 
   onAuthStateChanged(auth, (user) => {
@@ -37,12 +32,12 @@ export default function App()
     <>
       <BrowserRouter>
         <Navbar></Navbar>
-            <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="about" element={<About/>}/>
-              <Route path="algorithm/:id" element={<Algorithm/>}></Route>
-              <Route path="*" element={<NotFound/>}></Route>
-            </Routes>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="algorithm/:id" element={<AlgorithmPage />}></Route>
+          <Route path="*" element={<NotFoundPage />}></Route>
+        </Routes>
         <Footer></Footer>
       </BrowserRouter>
     </>

@@ -1,6 +1,6 @@
 import style from '/src/css/footer.module.css';
 
-function Footer()
+export function Footer()
 {
     return (
         <footer>
@@ -22,5 +22,3 @@ function Footer()
     );
 
 }
-
-export default Footer;

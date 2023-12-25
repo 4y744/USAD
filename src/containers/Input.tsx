@@ -8,7 +8,8 @@ interface InputProps {
     function: string;
 }
 
-function Input(props: InputProps)
+
+export function Input(props: InputProps)
 {
     const [input_field, setInput_field] = useState("");
     const [input_box, setInput_box] = useState(Array<string>);
@@ -94,5 +95,4 @@ function Input(props: InputProps)
     
     
 }
-
-export default Input;
+ 

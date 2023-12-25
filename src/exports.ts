@@ -1,30 +1,31 @@
 //FILE TO CENTRALIZE COMPONENT EXPORTS
 
-//Import components
-import NavLogo from "./components/navbar/NavLogo";
-import NavLink from "./components/navbar/NavLink";
-import NavSearch from "./components/navbar/NavSearch";
-import NavToggle from "./components/navbar/NavToggle";
-import DropdownLink from "./components/navbar/DropdownLink";
-
 //Export components
-export {NavLogo, NavLink, NavSearch, NavToggle, DropdownLink};
+export * from "./components/navbar/NavLogo";
+export * from "./components/navbar/NavLink";
+export * from "./components/navbar/NavSearch";
+export * from "./components/navbar/NavToggle";
+export * from "./components/navbar/DropdownLink";
+export * from "./components/navbar/LineBreak";
 
-//Import containers
-import Navbar from "./containers/Navbar";
-import Footer from "./containers/Footer";
-import Input from "./containers/Input";
 
-//Export containers
-export {Navbar, Footer, Input};
+//EXPORT CONTAINERS
 
-//Import page components
-import Home from "./pages/Home";
-import Algorithm from "./pages/Algorithm";
-import About from "./pages/About";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import NotFound from "./pages/NotFound";
+export * from "./containers/Navbar";
+export * from "./containers/Footer";
+
+export * from "./containers/Input";
+export * from "./containers/AlgorithmCard"
+
+//Home exports
+export * from "./containers/home/HomeHeading";
+export * from "./containers/home/HomeFeatured";
 
 //Export page components
-export {Home, Algorithm, About, SignIn, SignUp, NotFound};
+export * from "./pages/HomePage";
+export * from "./pages/Loading";
+export * from "./pages/AlgorithmPage";
+export * from "./pages/AboutPage";
+export * from "./pages/SignInPage";
+export * from "./pages/SignUpPage";
+export * from "./pages/NotFoundPage";

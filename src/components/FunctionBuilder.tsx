@@ -26,4 +26,4 @@ return func_map.get(func)!(args);
 
 }
 
-export default functionBuilder;
+export functionBuilder;

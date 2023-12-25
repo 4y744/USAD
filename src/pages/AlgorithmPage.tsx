@@ -1,7 +1,7 @@
 
 //Import components
-import Input from '../containers/Input.tsx';
-import NotFound from './NotFound.tsx';
+import {Input} from '../containers/Input.tsx';
+import {NotFoundPage} from './NotFoundPage.tsx';
 //Import css files
 import style from '/src/css/algorithm.module.css';
 //Import react hooks
@@ -9,7 +9,7 @@ import {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 //Import Firebase hooks
 import { getDoc, doc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../firebase.ts";
 
 
 interface alg_interface{
@@ -20,7 +20,7 @@ interface alg_interface{
     function: string;
 }
 
-export default function Algorithm()
+export function AlgorithmPage()
 {
     const [alg, setAlg] = useState<alg_interface>();
     const [isLoading, setLoading] = useState(true);
@@ -54,7 +54,7 @@ export default function Algorithm()
     //If the Firestore document isn't found returns 404
     if(!canAccess)
     {
-        return <NotFound/>
+        return <NotFoundPage/>
     }
     return (
         <div className={style.container}>
