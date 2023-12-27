@@ -6,20 +6,23 @@ export * from "./components/navbar/NavLink";
 export * from "./components/navbar/NavSearch";
 export * from "./components/navbar/NavToggle";
 export * from "./components/navbar/DropdownLink";
-export * from "./components/navbar/LineBreak";
+export * from "./components/navbar/NavLineBreak";
+
+export * from "./components/card/CardUserLink";
+
 
 
 //EXPORT CONTAINERS
-
 export * from "./containers/Navbar";
 export * from "./containers/Footer";
 
 export * from "./containers/Input";
-export * from "./containers/AlgorithmCard"
+export * from "./containers/Card"
 
-//Home exports
 export * from "./containers/home/HomeHeading";
 export * from "./containers/home/HomeFeatured";
+
+
 
 //Export page components
 export * from "./pages/HomePage";

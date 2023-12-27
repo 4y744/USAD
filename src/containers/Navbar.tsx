@@ -1,5 +1,5 @@
 //Import components
-import { NavLogo, NavLink, NavSearch, NavToggle, DropdownLink, LineBreak } from "../exports";
+import { NavLogo, NavLink, NavSearch, NavToggle, DropdownLink, NavLineBreak } from "../exports";
 
 //Import React hooks
 import { useState, useRef, useEffect } from "react";
@@ -24,47 +24,47 @@ export function Navbar()
     return (
         <nav className="bg-zinc-900 drop-shadow-md">
             {/* Big screen navbar */}
-            <section className="md:flex hidden p-2">
+            <div className="md:flex hidden p-2">
 
-                <section className="flex justify-start items-center xl:flex-1 flex-2">
+                <div className="flex justify-start items-center xl:flex-1 flex-2">
                     <NavLogo/>
                     <NavLink url="/" text="Home"/>
                     <NavLink url="browse" text="Browse"/>
                     <NavLink url="create" text="Create"/>
                     <NavLink url="about" text="About"/>
-                </section>
+                </div>
 
-                <section className="flex justify-center items-center flex-1">
+                <div className="flex justify-center items-center flex-1">
                     <NavSearch/>
-                </section>
+                </div>
 
-                <section className="flex justify-end items-center flex-1">
+                <div className="flex justify-end items-center flex-1">
                     <NavLink url="/" text="Sign in"/>
-                </section>
+                </div>
 
-            </section>
+            </div>
 
             {/* Mobile navbar */}
-            <section className="md:hidden flex flex-col">
+            <div className="md:hidden flex flex-col">
 
-                <section className="flex p-3">
+                <div className="flex p-3">
 
-                    <section className="flex justify-center items-center">
+                    <div className="flex justify-center items-center">
                         <NavLogo/>
-                    </section>
+                    </div>
 
-                    <section className="flex justify-center items-center w-full px-3">
+                    <div className="flex justify-center items-center w-full px-3">
                         <NavSearch/>
-                    </section>
+                    </div>
 
-                    <section className="flex justify-end items-center">
+                    <div className="flex justify-end items-center">
                         <NavToggle toggle={toggleNavbar}/>
-                    </section>
+                    </div>
 
-                </section>
+                </div>
 
                 {/* Dropdown */}
-                <section style={navToggled ? {height: dropdownRef.current?.scrollHeight!} : {height: 0}} ref={dropdownRef} className="flex justify-start items-start overflow-hidden flex-col px-3 transition-height duration-300 ease-in-out">
+                <div style={navToggled ? {height: dropdownRef.current?.scrollHeight!} : {height: 0}} ref={dropdownRef} className="flex justify-start items-start overflow-hidden flex-col px-3 transition-height duration-300 ease-in-out">
                     <DropdownLink onclick={toggleNavbar} url="/" text="Home"/>
                     <DropdownLink onclick={toggleNavbar} url="browse" text="Browse"/>
                     <DropdownLink onclick={toggleNavbar} url="create" text="Create"/>
@@ -72,10 +72,10 @@ export function Navbar()
                     <hr className="h-1 w-full my-2 border-1 border-zinc-200"/>
                     <DropdownLink onclick={toggleNavbar} url="/" text="Sign in"/>
                     {/* Empty space, because margins or vertical paddings are not affected by height */}
-                    <LineBreak/>
-                </section>
+                    <NavLineBreak/>
+                </div>
                 
-            </section>
+            </div>
         </nav>
         
     );
