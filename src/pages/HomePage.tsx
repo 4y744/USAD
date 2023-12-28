@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from 'react-router-dom';
-import { Card, HomeFeatured, HomeHeading } from '../exports';
+import { HomeFeatured, HomeHeading } from '../exports';
 
 
 export function HomePage()
@@ -50,6 +50,5 @@ export function HomePage()
     return <>
         <HomeHeading/>
         <HomeFeatured/>
-        <Card url='alg'/>
     </>
 }

@@ -1,4 +1,4 @@
-function functionBuilder(args : Array<string>, func : string)
+export function functionBuilder(args : Array<string>, func : string)
 {
 
 const func_map = new Map([
@@ -25,5 +25,3 @@ const func_map = new Map([
 return func_map.get(func)!(args);
 
 }
-
-export functionBuilder;
