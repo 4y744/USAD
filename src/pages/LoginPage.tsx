@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../hooks/firebase";
 
 
-export function LoginPage()
-{
+export const LoginPage = () => {
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 

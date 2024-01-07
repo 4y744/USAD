@@ -1,16 +1,8 @@
-import style from '/src/css/input.module.css';
-import {useState, useEffect} from 'react';
-//import functionBuilder from './FunctionBuilder.tsx';
+//Import React hooks
+import { useState, useEffect } from 'react';
 
-interface InputProps {
-    type: string;
-    inputs: Array<string>;
-    function: string;
-}
+export const Input = (props : {type: string, inputs: Array<string>, function: string}) => {
 
-
-export function Input(props: InputProps)
-{
     const [input_field, setInput_field] = useState("");
     const [input_box, setInput_box] = useState(Array<string>);
     const [result, setResult] = useState("0");
@@ -70,24 +62,24 @@ export function Input(props: InputProps)
     if(props.type == "box")
     {
         return (<>
-            <div className={style["calculator-container"]}>
+            <div>
                 {props.inputs.map((item : string, index : number) => (
-                    <input onChange={(event) => {input_box[index] = event.target.value; setInput_box(input_box)}}  key={item} className={style["input-box"]} type="number" placeholder={item}/>
+                    <input onChange={(event) => {input_box[index] = event.target.value; setInput_box(input_box)}}  key={item} type="number" placeholder={item}/>
                 ))}
                 <div>
-                    <button onClick={() => {calculateAlgorithm(input_box)}} className={style["calculate-button"]}>Изчисли</button>
-                    <span className={style["output-label"]} id={style["output-label"]}>{result}</span>
+                    <button onClick={() => {calculateAlgorithm(input_box)}}>Изчисли</button>
+                    <span>{result}</span>
                 </div>
             </div> 
             </>)
     }
     //If the input type is a field or is undefined renders this
     return (<>
-        <div className={style["calculator-container"]}>
-            <textarea id="input-box" onChange={(event) => setInput_field(event.target.value)} className={style["input-field"]} placeholder={props.inputs[0]}></textarea>
+        <div>
+            <textarea id="input-box" onChange={(event) => setInput_field(event.target.value)} placeholder={props.inputs[0]}></textarea>
             <div>
-                <button onClick={() => {calculateAlgorithm(convertToArray(input_field))}} className={style["calculate-button"]}>Изчисли</button>
-                <span className={style["output-label"]} id={style["output-label"]}>{result}</span>
+                <button onClick={() => {calculateAlgorithm(convertToArray(input_field))}}>Изчисли</button>
+                <span>{result}</span>
             </div>
         </div> 
         </>)

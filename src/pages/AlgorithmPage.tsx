@@ -1,15 +1,14 @@
 
 //Import components
-import {Input} from '../containers/Input.tsx';
-import {NotFoundPage} from './NotFoundPage.tsx';
-//Import css files
-import style from '/src/css/algorithm.module.css';
+import { Input, Loading, NotFoundPage } from '../libs/exports.ts';
+
 //Import react hooks
 import {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+
 //Import Firebase hooks
 import { getDoc, doc } from "firebase/firestore";
-import { db } from "../firebase.ts";
+import { db } from "../hooks/firebase.ts";
 
 
 interface alg_interface{
@@ -20,8 +19,8 @@ interface alg_interface{
     function: string;
 }
 
-export function AlgorithmPage()
-{
+export const AlgorithmPage = () => {
+    
     const [alg, setAlg] = useState<alg_interface>();
     const [isLoading, setLoading] = useState(true);
     const [canAccess, setCanAccess] = useState(true);
@@ -48,7 +47,7 @@ export function AlgorithmPage()
     //Displays while the page is loading
     if (isLoading) 
     {
-        return <div className={style.container}><div className={style.loading}>Зареждане...</div></div>
+        return <Loading/>
     }
     
     //If the Firestore document isn't found returns 404
@@ -57,14 +56,14 @@ export function AlgorithmPage()
         return <NotFoundPage/>
     }
     return (
-        <div className={style.container}>
-            <div className={style["wrapper"]}>
-                <h1 className={style.name}>{alg?.name || "No name"}</h1>
+        <div>
+            <div>
+                <h1>{alg?.name || "No name"}</h1>
                 <Input inputs={alg?.inputs || [""]} type={alg?.input_type || "field"} function={alg?.function || ""}></Input>
             </div>
-            <div className={style["wrapper"]}>
-                <h1 className={style.name}>Описание</h1>
-                <p className={style.description}>{alg?.description || "No description"}</p>
+            <div>
+                <h1>Описание</h1>
+                <p>{alg?.description || "No description"}</p>
             </div>
         </div>
     )

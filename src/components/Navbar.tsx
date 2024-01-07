@@ -1,15 +1,18 @@
-//Import components
-import { NavLogo, NavLink, NavSearch, NavToggle, DropdownLink, NavLineBreak } from "../exports";
+//Import assets
+import logo from "../assets/images/logo.png"
 
 //Import React hooks
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
+
+import { Link } from "react-router-dom";
 
 //Import localization
-import i18n from "../locale/config";
-import { useTranslation } from "react-i18next"
+// import i18n from "../locale/config";
+// import { useTranslation } from "react-i18next"
 
-export function Navbar()
-{
+export const Navbar = () => {
+
+    //TODO: ADD LOLCALIZATION
     //const change = () => i18n.changeLanguage("bg");
     //const { t } = useTranslation();
 
@@ -22,7 +25,7 @@ export function Navbar()
     }
 
     return (
-        <nav className="bg-zinc-900 drop-shadow-md">
+        <nav className="bg-zinc-900 drop-shadow-md fixed top-0 z-10 w-full">
             {/* Big screen navbar */}
             <div className="md:flex hidden p-2">
 
@@ -34,7 +37,7 @@ export function Navbar()
                     <NavLink url="about" text="About"/>
                 </div>
 
-                <div className="flex justify-center items-center flex-1">
+                <div className="flex justify-center items-center flex-1 px-2">
                     <NavSearch/>
                 </div>
 
@@ -72,7 +75,7 @@ export function Navbar()
                     <hr className="h-1 w-full my-2 border-1 border-zinc-200"/>
                     <DropdownLink onclick={toggleNavbar} url="/" text="Sign in"/>
                     {/* Empty space, because margins or vertical paddings are not affected by height */}
-                    <NavLineBreak/>
+                    <div className="w-full py-1"></div>
                 </div>
                 
             </div>
@@ -81,3 +84,44 @@ export function Navbar()
     );
 
 }
+
+const NavLogo = () => (
+    <Link to="" className="w-10 mx-2"><img className='h-10 w-10' src={logo} alt="Can't load logo" /></Link>
+)
+
+
+const NavLink = (props : {url : string, text : string}) => (
+
+    <Link className='text-zinc-200 font-inter py-1 px-3 mx-1 rounded-md text-base hover:bg-green-600 active:bg-green-600 
+    transition-background duration-100 active:outline outline-offset-2 outline-2 outline-green-600' 
+    to={props.url}>{props.text}</Link>
+)
+
+
+const NavSearch = () => (
+      <form className='focus-within:outline outline-offset-2 outline-2 outline-green-600 bg-zinc-800
+       p-1 rounded-md text-zinc-500 font-inter flex w-full md:w-60 lg:w-80'>
+          <label htmlFor="searchbar"><i className="fa-solid fa-magnifying-glass aspect-square p-2"></i></label>
+          <input className='outline-none bg-transparent w-full text-white' id='searchbar' type="text" placeholder='Type here...' />
+          <button className='bg-green-700 hover:bg-green-600 transition:background duration-100 ease-in-out text-zinc-200
+          py-1 px-3 ml-auto rounded-md shadow-sm'>Search</button>
+      </form>
+)
+
+const NavToggle = (props : {toggle : () => void}) => (
+
+    <button onClick={props.toggle} className='flex md:hidden justify-center items-center flex-col 
+    aspect-square rounded-md active:outline outline-2 outline-green-600 hover:bg-zinc-800'>
+        <div className='rounded-md w-5 h-0.5 mx-2 my-0.5 bg-zinc-300'/>
+        <div className='rounded-md w-5 h-0.5 mx-2 my-0.5 bg-zinc-300'/>
+        <div className='rounded-md w-5 h-0.5 mx-2 my-0.5 bg-zinc-300'/>
+    </button>
+)
+
+
+const DropdownLink = (props : {url : string, text : string, onclick : () => void}) => (
+
+    <Link className='text-zinc-200 font-inter py-1 px-3 my-1 w-full rounded-md text-base hover:bg-green-600
+    active:bg-green-600 transition-background duration-100 active:outline outline-offset-2 outline-2 outline-green-600'
+    to={props.url} onClick={props.onclick}>{props.text}</Link>
+)

@@ -2,8 +2,8 @@
 import  i18n  from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import enJSON from './translations/en/en.json';
-import bgJSON from './translations/bg/bg.json';
+import enJSON from './translations/en.json';
+import bgJSON from './translations/bg.json';
 
 //TODO: Save language to local storage
 

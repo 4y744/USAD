@@ -12,10 +12,12 @@ export default {
       transitionProperty: {
         'max-height': 'max-height',
         'height': 'height',
-        'background': 'background'
+        'width': 'width',
+        'background': 'background',
+        'padding': 'padding'
       },
       backgroundImage: {
-        'home-headline': "url('/src/assets/svgs/home-headline.svg')"
+        'home-headline': "url('/src/assets/svgs/home-headline.svg')",
       }
     }
   },

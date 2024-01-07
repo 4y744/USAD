@@ -1,5 +1,3 @@
-
-export function AboutPage()
-{
-    return <>About Page</>
-}
+export const AboutPage = () => (
+    <div>About Page</div>
+)
