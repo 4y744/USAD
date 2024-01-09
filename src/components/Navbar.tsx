@@ -2,9 +2,11 @@
 import logo from "../assets/images/logo.png"
 
 //Import React hooks
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { Link } from "react-router-dom";
+import { auth} from "../hooks/firebase";
+import { useGetUsername } from "../hooks/auth";
 
 //Import localization
 // import i18n from "../locale/config";
@@ -24,6 +26,8 @@ export const Navbar = () => {
         setNavToggled(!navToggled);
     }
 
+    let username = useGetUsername();
+
     return (
         <nav className="bg-zinc-900 drop-shadow-md fixed top-0 z-10 w-full">
             {/* Big screen navbar */}
@@ -42,9 +46,9 @@ export const Navbar = () => {
                 </div>
 
                 <div className="flex justify-end items-center flex-1">
-                    <NavLink url="/" text="Sign in"/>
+                    {username ? <ProfileLink username={username}/> : <NavLink url="/signin" text="Sign in"/>}
                 </div>
-
+               
             </div>
 
             {/* Mobile navbar */}
@@ -73,7 +77,7 @@ export const Navbar = () => {
                     <DropdownLink onclick={toggleNavbar} url="create" text="Create"/>
                     <DropdownLink onclick={toggleNavbar} url="about" text="About"/>
                     <hr className="h-1 w-full my-2 border-1 border-zinc-200"/>
-                    <DropdownLink onclick={toggleNavbar} url="/" text="Sign in"/>
+                    <DropdownLink onclick={toggleNavbar} url="/signin" text="Sign in"/>
                     {/* Empty space, because margins or vertical paddings are not affected by height */}
                     <div className="w-full py-1"></div>
                 </div>
@@ -125,3 +129,11 @@ const DropdownLink = (props : {url : string, text : string, onclick : () => void
     active:bg-green-600 transition-background duration-100 active:outline outline-offset-2 outline-2 outline-green-600'
     to={props.url} onClick={props.onclick}>{props.text}</Link>
 )
+
+const ProfileLink = (props: {username: string}) => { 
+    
+
+    return <Link to="">
+        {props.username}
+    </Link>
+}

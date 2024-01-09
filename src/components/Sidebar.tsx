@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
+import { auth } from "../hooks/firebase"
 
 export const Sidebar = () => (
-    <section className="md:fixed sticky bottom-0
+    <section style={auth.currentUser ? {visibility: "hidden"} : {visibility: "visible"}} className="md:fixed sticky bottom-0
     md:h-[calc(100dvh-56px)] md:w-14 md:hover:w-48 transition-width duration-200
     h-14 w-full z-20
     flex md:flex-col md:items-start md:justify-end items-center justify-center
